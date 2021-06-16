@@ -1,0 +1,17 @@
+{
+	"wellness":
+	{
+		"satiation": 100,
+		"hydration": 100,
+		"exuberance": 100,
+		"vitality": 100,
+		"hygiene": 100
+	},
+	"items":
+	[
+		"burger",
+		"bottled water",
+		"soda",
+		"soap"
+	]
+}
