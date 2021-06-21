@@ -4,7 +4,7 @@ import sys
 import win32api
 import win32con
 import win32gui
-from button_functions import close_sidebar, toggle_wellness_sidebar, toggle_items_sidebar, toggle_activities_sidebar, toggle_options_sidebar
+from button_functions import close_sidebar, toggle_wellness_sidebar, toggle_items_sidebar, toggle_stats_sidebar, toggle_options_sidebar
 
 TRANSPARENT = (255, 0, 128)
 
@@ -72,9 +72,9 @@ class Sans:
 			self.rect = pygame.Rect(x, y, width, height)
 			self.color = color
 			self.sidebar = sidebar
-			button1 = Sans.Button(window, x + 5, y + 5, 30, 30, (95, 146, 40), lambda: toggle_wellness_sidebar(self.sidebar) if self.sidebar.status != 1 else close_sidebar(sidebar))
+			button1 = Sans.Button(window, x + 5, y + 5, 30, 30, (95, 146, 40), lambda: toggle_stats_sidebar(self.sidebar) if self.sidebar.status != 1 else close_sidebar(sidebar))
 			button2 = Sans.Button(window, x + 40, y + 5, 30, 30, (95, 146, 40), lambda: toggle_items_sidebar(self.sidebar) if self.sidebar.status != 2 else close_sidebar(sidebar))
-			button3 = Sans.Button(window, x + 75, y + 5, 30, 30, (95, 146, 40), lambda: toggle_activities_sidebar(self.sidebar) if self.sidebar.status != 3 else close_sidebar(sidebar))
+			button3 = Sans.Button(window, x + 75, y + 5, 30, 30, (95, 146, 40), lambda: toggle_wellness_sidebar(self.sidebar) if self.sidebar.status != 3 else close_sidebar(sidebar))
 			button4 = Sans.Button(window, x + 110, y + 5, 30, 30, (95, 146, 40), lambda: toggle_options_sidebar(self.sidebar) if self.sidebar.status != 4 else close_sidebar(sidebar))
 			button5 = Sans.Button(window, x + 145, y + 5, 30, 30, (241, 60, 32), end)
 			self.buttons = (button1, button2, button3, button4, button5)

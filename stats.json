@@ -7,6 +7,25 @@
 		"vitality": 100,
 		"hygiene": 100
 	},
+	"record":
+	{
+		"Name": "Player",
+		"Level of Violence": 1,
+		"Hit Points": 
+		{
+			"current": 20,
+			"max": 20
+		},
+		"Attack": 10,
+		"Defense": 10,
+		"Execution Points": 0,
+		"Gold": 5
+	},
+	"equipments":
+	{
+		"weapon": null,
+		"armor": null
+	},
 	"items":
 	[
 		"burger",
