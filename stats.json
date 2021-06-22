@@ -11,13 +11,7 @@
 	{
 		"Name": "Player",
 		"Level of Violence": 1,
-		"Hit Points": 
-		{
-			"current": 20,
-			"max": 20
-		},
-		"Attack": 10,
-		"Defense": 10,
+		"Hit Points": 20,
 		"Execution Points": 0,
 		"Gold": 5
 	},

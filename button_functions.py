@@ -14,6 +14,7 @@ wellness = stats["wellness"]
 record = stats["record"]
 equipments = stats["equipments"]
 items = stats["items"]
+expToNextLV = (10, 20, 40, 50, 80, 100, 200, 300, 400, 500, 800, 1000, 1500, 2000, 3000, 5000, 10000, 25000, 49999)
 
 def close_sidebar(sidebar):
 	sidebar.status = 0
@@ -25,15 +26,15 @@ def toggle_stats_sidebar(sidebar):
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 10, sidebar.rect.y + 35, "LV"))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 30, sidebar.rect.y + 35, record["Level of Violence"]))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 10, sidebar.rect.y + 50, "HP"))
-	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 30, sidebar.rect.y + 50, f"{record['Hit Points']['current']} / {record['Hit Points']['max']}"))
+	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 30, sidebar.rect.y + 50, f"{record['Hit Points']} / {20 + (record['Level of Violence'] - 1) * 4}"))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 10, sidebar.rect.y + 75, "AT"))
-	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 30, sidebar.rect.y + 75, record["Attack"]))
+	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 30, sidebar.rect.y + 75, (record["Level of Violence"] - 1) // 4))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 10, sidebar.rect.y + 90, "DF"))
-	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 30, sidebar.rect.y + 90, record["Defense"]))
+	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 30, sidebar.rect.y + 90, (record["Level of Violence"] - 1) // 4))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 60, sidebar.rect.y + 75, "EXP:"))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 95, sidebar.rect.y + 75, record["Execution Points"]))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 60, sidebar.rect.y + 90, "NEXT:"))
-	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 95, sidebar.rect.y + 90, 10))
+	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 95, sidebar.rect.y + 90, expToNextLV[record["Level of Violence"] - 1] - record["Execution Points"]))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 10, sidebar.rect.y + 115, "WEAPON:"))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 60, sidebar.rect.y + 115, equipments["weapon"]))
 	sidebar.add(MenuText(sidebar.window, sidebar.rect.x + 10, sidebar.rect.y + 130, "ARMOR:"))
